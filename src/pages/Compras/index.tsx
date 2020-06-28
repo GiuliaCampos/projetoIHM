@@ -113,12 +113,14 @@ const styles = StyleSheet.create({
 
       title: {
         color: "#1da1f2",
-        fontSize: 28,
+        fontSize: 25,
         fontFamily: "Roboto_500Medium",
         maxWidth: 260,
         marginLeft: 30,
         paddingRight: 10,
         paddingLeft: 60,
+        paddingBottom: 5,
+        paddingTop: 5,
         justifyContent: 'center',
         borderColor: '#989eb1',
         borderStyle: 'dotted',
