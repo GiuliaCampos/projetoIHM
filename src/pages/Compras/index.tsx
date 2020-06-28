@@ -1,6 +1,6 @@
 import React from 'react';
 import {Feather as Icon} from '@expo/vector-icons';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 
@@ -11,51 +11,68 @@ const Compras = () => {
         navigation.navigate('Mercados');
     }
 
+    function handleNavigationBack(){
+        navigation.goBack();
+    }
+
     return (
         <>
             <View style={styles.container}>
                 <View style={styles.main}>
+                <TouchableOpacity onPress={handleNavigationBack}>
+                    <Icon name="arrow-left" size={20} color="#1da1f2"/>
+                </TouchableOpacity>
                     <Image style={styles.logo} source={require('../../assets/logo.png')} />
                     <Text style={styles.title}>
                         Minha Lista
                     </Text>
                 </View>
-                <View style={styles.lista}>
-                    <Text style={styles.nomeProduto}>
-                        Arroz
-                    </Text>
-                    <Text style={styles.descricao}>
-                        Pacote com 5kg - marca Tio João
-                    </Text>
-                </View>
-                <View style={styles.lista}>
-                    <Text style={styles.nomeProduto}>
-                        Sabão em Pó
-                    </Text>
-                    <Text style={styles.descricao}>
-                        Pacote com 2kg - marca Omo
-                    </Text>
-                </View>
-                <View style={styles.lista}>
-                    <Text style={styles.nomeProduto}>
-                        Frango
-                    </Text>
-                    <Text style={styles.descricao}>
-                        Peito de frango 2kg
-                    </Text>
-                </View>
-                <View style={styles.botoes}>
-                    <RectButton style={styles.buttonPlus}>
-                        <View style={styles.buttonIcon}>
-                            <Text>
-                                <Icon name='plus-circle' color='#fff' size={30}/>
-                            </Text>
-                        </View>
-                    </RectButton>
-                    <RectButton style={styles.buttonPronto} onPress={handleNavigationToMercados}>
-                        <Text style={styles.buttonText}>Pronto!</Text>
-                    </RectButton>
-                </View>
+                <ScrollView>
+                  <View style={styles.lista}>
+                      <Text style={styles.nomeProduto}>
+                          Arroz
+                      </Text>
+                      <Text style={styles.descricao}>
+                          Pacote com 5kg - marca Tio João
+                      </Text>
+                  </View>
+                  <View style={styles.lista}>
+                      <Text style={styles.nomeProduto}>
+                          Maça
+                      </Text>
+                      <Text style={styles.descricao}>
+                          3 unidades
+                      </Text>
+                  </View>
+                  <View style={styles.lista}>
+                      <Text style={styles.nomeProduto}>
+                          Sabão em Pó
+                      </Text>
+                      <Text style={styles.descricao}>
+                          Pacote com 2kg - marca Omo
+                      </Text>
+                  </View>
+                  <View style={styles.lista}>
+                      <Text style={styles.nomeProduto}>
+                          Frango
+                      </Text>
+                      <Text style={styles.descricao}>
+                          Peito de frango 2kg
+                      </Text>
+                  </View>
+                  <View style={styles.botoes}>
+                      <RectButton style={styles.buttonPlus}>
+                          <View style={styles.buttonIcon}>
+                              <Text>
+                                  <Icon name='plus-circle' color='#fff' size={30}/>
+                              </Text>
+                          </View>
+                      </RectButton>
+                      <RectButton style={styles.buttonPronto} onPress={handleNavigationToMercados}>
+                          <Text style={styles.buttonText}>Pronto!</Text>
+                      </RectButton>
+                  </View>
+                </ScrollView>
             </View>
             <View style={styles.menu}>
                 <View style={styles.menuItem}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Feather as Icon} from '@expo/vector-icons';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
 
 import {useNavigation} from '@react-navigation/native';
@@ -23,7 +23,16 @@ const home = () => {
             <View style={styles.footer}>
                 <View>
                     <Text style={styles.inputName}>Email</Text>
+                    <TextInput style={styles.input} 
+                      textContentType={"emailAddress"} 
+                      keyboardType={"email-address"}
+                      placeholder={"exemple@email.com"}
+                    />
                     <Text style={styles.inputName}>Senha</Text>
+                    <TextInput style={styles.input} 
+                      textContentType={"password"}
+                      placeholder={"senha"} 
+                    />
                 </View>
                 <RectButton style={styles.button} onPress={handleNavigationToCompras}>
                     {/* <View style={styles.buttonIcon}>
@@ -46,6 +55,7 @@ const home = () => {
         </View>
     );
 };
+
 //ff6624 (laranja) 1da1f2(azul)
 const styles = StyleSheet.create({
     container: {
@@ -93,9 +103,10 @@ const styles = StyleSheet.create({
       select: {},
     
       input: {
-        height: 60,
+        height: 40,
         backgroundColor: "#FFF",
-        borderRadius: 10,
+        borderBottomWidth: 2,
+        borderColor: '#ebebeb',
         marginBottom: 8,
         paddingHorizontal: 24,
         fontSize: 16,

@@ -1,21 +1,75 @@
 import React, {useState} from 'react';
 import {Feather as Icon} from  '@expo/vector-icons';
 import {RectButton} from 'react-native-gesture-handler';
-import { View, Text, StyleSheet, Image, Switch, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, Switch, ScrollView, TouchableOpacity } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 const Mercados = () => {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [isEnabled1, setIsEnabled1] = useState(false);
+  const [isEnabled2, setIsEnabled2] = useState(false);
+  const [isEnabled3, setIsEnabled3] = useState(false);
+  const [isEnabled4, setIsEnabled4] = useState(false);
+  const [isEnabled5, setIsEnabled5] = useState(false);
+
+
+  const toggleSwitch1 = () => {
+    setIsEnabled1(previousState => !previousState);
+    setIsEnabled2(false);
+    setIsEnabled3(false);
+    setIsEnabled4(false);
+    setIsEnabled5(false);
+  }
+
+  const toggleSwitch2 = () => {
+    setIsEnabled2(previousState => !previousState);
+    setIsEnabled1(false);
+    setIsEnabled3(false);
+    setIsEnabled4(false);
+    setIsEnabled5(false);
+  }
+
+  const toggleSwitch3 = () => {
+    setIsEnabled3(previousState => !previousState);
+    setIsEnabled2(false);
+    setIsEnabled1(false);
+    setIsEnabled4(false);
+    setIsEnabled5(false);
+  }
+
+  const toggleSwitch4 = () => {
+    setIsEnabled4(previousState => !previousState);
+    setIsEnabled2(false);
+    setIsEnabled3(false);
+    setIsEnabled1(false);
+    setIsEnabled5(false);
+  }
+
+  const toggleSwitch5 = () => {
+    setIsEnabled5(previousState => !previousState);
+    setIsEnabled2(false);
+    setIsEnabled3(false);
+    setIsEnabled4(false);
+    setIsEnabled1(false);
+  }
+
+
   const navigation = useNavigation();
+
   function handleNavigationToMercados(){
     navigation.navigate('Mapa');
+  }
+
+  function handleNavigationBack(){
+    navigation.goBack();
   }
 
     return (
       <>
         <View style={styles.container}>
           <View style={styles.main}>
+          <TouchableOpacity onPress={handleNavigationBack}>
+            <Icon name="arrow-left" size={20} color="#1da1f2"/>
+          </TouchableOpacity>
             <Image style={styles.logo} source={require('../../assets/logo.png')} />
               <Text style={styles.title}>
                 Selecione o Mercado
@@ -29,8 +83,8 @@ const Mercados = () => {
                 </Text>
               </View>
               <Switch
-                onValueChange={toggleSwitch}
-                value={isEnabled}
+                onValueChange={toggleSwitch1}
+                value={isEnabled1}
                 style={styles.buttonSwitch}
               />
             </View>
@@ -41,8 +95,8 @@ const Mercados = () => {
                 </Text>
               </View>
               <Switch
-                onValueChange={toggleSwitch}
-                value={isEnabled}
+                onValueChange={toggleSwitch2}
+                value={isEnabled2}
                 style={styles.buttonSwitch}
               />
             </View>
@@ -53,8 +107,8 @@ const Mercados = () => {
                 </Text>
               </View>
               <Switch
-                onValueChange={toggleSwitch}
-                value={isEnabled}
+                onValueChange={toggleSwitch3}
+                value={isEnabled3}
                 style={styles.buttonSwitch}
               />
             </View>
@@ -65,8 +119,8 @@ const Mercados = () => {
                 </Text>
               </View>
               <Switch
-                onValueChange={toggleSwitch}
-                value={isEnabled}
+                onValueChange={toggleSwitch4}
+                value={isEnabled4}
                 style={styles.buttonSwitch}
               />
             </View>
@@ -77,8 +131,8 @@ const Mercados = () => {
                 </Text>
               </View>
               <Switch
-                onValueChange={toggleSwitch}
-                value={isEnabled}
+                onValueChange={toggleSwitch5}
+                value={isEnabled5}
                 style={styles.buttonSwitch}
               />
             </View>
